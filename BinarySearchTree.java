@@ -1,36 +1,36 @@
 package lab6;
 import java.util.*;
 
-public class BinarySearchTree {
+public class BinarySearchTree<E extends Comparable<E>> {
 	
-	public class Node {
+	public class Node<E extends Comparable<E>> {
 		int data;
 		Node subLeft;
 		Node subRight;
 	}
 	
 	boolean add(E item) {
-		
+		return false;
 	}
 	
 	E remove(E item) {
-		
+		return null;
 	}
 	
 	boolean find(E item) {
-		
+		return false;
 	}
 
 	E getParent(E item) {
-		
+		return null;
 	}
 	
 	ArrayList<E> getAllDescendant(E item) {
-		
+		return null;
 	}
 	
 	E getMax() {
-		
+		return null;
 	}
 	
 	int getHeight() {
@@ -38,27 +38,27 @@ public class BinarySearchTree {
 	}
 	
 	int getLevel(E item) {
-		
+		return 0;
 	}
 	
 	void inOrder() {
-		
+		return;
 	}
 	
 	void preOrder() {
-		
+		return;
 	}
 	
 	void postOrder() {
-		
+		return;
 	}
 	
 	ArrayList<E> bfs() {
-		
+		return null;
 	}
 	
 	boolean isIdentical(Node<E> anotherTree) {
-		
+		return false;
 	}
 	
 	int numLeaves() {
@@ -70,6 +70,6 @@ public class BinarySearchTree {
 	}
 	
 	void clear() {
-		
+		return;
 	}
 }
