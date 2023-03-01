@@ -17,6 +17,7 @@
 15. numInternal(): int
 16. clear(): void
   
+Make sure you create a test cases in the main method to test out your methods.
   
 Each method should have the name of the developer, the order of the
 method, and justification for the order on top of it. In cases that you need
