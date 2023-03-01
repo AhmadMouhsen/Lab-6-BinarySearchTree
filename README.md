@@ -28,3 +28,5 @@ implementation:
   Create a node that has 3 data feilds, one for the data, one for the left pointer,
   and one for the right pointer. Whithin the tree class there will also be a feild 
   called root pointing to the highest node.
+  
+  Make sure to make method recursive if possible.
