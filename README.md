@@ -4,10 +4,10 @@
 2. remove(E item) E
 3. find (E item) boolean
 4. getParent(E item): E
-5. getAllDescendant (E item): ArrayList<E>
-6. getMax(): E
-7. getHeight(): int
-8. getLevel(E item): int
+5. getAllDescendant (E item): ArrayList<E> (Ahmad)
+6. getMax(): E (Ahmad)
+7. getHeight(): int (Ahmad)
+8. getLevel(E item): int (Ahmad)
 9. inOrder(): void
 10. preOrder(): void
 11. postOrder(): void
