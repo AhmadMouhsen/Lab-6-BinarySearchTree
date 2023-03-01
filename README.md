@@ -31,6 +31,13 @@ public class BinaryTree {
 	}
 	
 	public BinaryTree clear() {
+	
+		
+		if (node == null) {
+			return;
+		}
+		
+		else if (node)
 		
 		
 	}
