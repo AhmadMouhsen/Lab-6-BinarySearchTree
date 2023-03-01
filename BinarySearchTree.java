@@ -3,6 +3,12 @@ import java.util.*;
 
 public class BinarySearchTree<E extends Comparable<E>> {
 	
+	Node root;
+	
+	BinarySearchTree(Node n) {
+		root = n;
+	}
+	
 	public class Node<E extends Comparable<E>> {
 		int data;
 		Node subLeft;
