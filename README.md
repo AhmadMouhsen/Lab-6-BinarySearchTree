@@ -8,10 +8,10 @@
 6. getMax(): E (Ahmad)
 7. getHeight(): int (Ahmad)
 8. getLevel(E item): int (Ahmad)
-9. inOrder(): void
-10. preOrder(): void
-11. postOrder(): void
-12. bfs(): ArrayList<E>
+9. inOrder(): void (Will)
+10. preOrder(): void (Will)
+11. postOrder(): void (Will)
+12. bfs(): ArrayList<E> (Will)
 13. isIdentical(Node<E> anotherTree)
 14. numLeaves(): int
 15. numInternal(): int
