@@ -1,9 +1,9 @@
 # Lab-6-BinarySearchTree
 
-1. add(E item) boolean
-2. remove(E item) E
-3. find (E item) boolean
-4. getParent(E item): E
+1. add(E item) boolean  (Liban)
+2. remove(E item) E (Liban)
+3. find (E item) boolean( Liban)
+4. getParent(E item): E (Liban)
 5. getAllDescendant (E item): ArrayList<E> (Ahmad)
 6. getMax(): E (Ahmad)
 7. getHeight(): int (Ahmad)
