@@ -45,4 +45,37 @@ public class BinarySearchTree<E extends Comparable<E>> {
                 return add(node.right, item);
             }
         }
+        public boolean find(E item) {
+        return find(root, item);
     }
+
+    private boolean find(Node node, E item) {
+        if (node == null) {
+            return false; // item not found
+        } else if (item.equals(node.data)) {
+            return true;
+        } else if (item.compareTo(node.data) < 0) {
+            return find(node.left, item);
+        } else {
+            return find(node.right, item);
+        }}
+        public Node getParent(E item) {
+            return getParent(root, item);
+        }
+
+    }
+ public static void main(String[] args) {
+            BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+
+            // add some nodes to the tree
+            tree.add(5);
+            tree.add(3);
+            tree.add(7);
+            tree.add(1);
+            tree.add(4);
+            tree.add(6);
+            tree.add(9);
+
+            // test the find() method
+            System.out.println(tree.find(6)); // true
+            System.out.println(tree.find(8)); // false
