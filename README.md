@@ -22,3 +22,9 @@ Each method should have the name of the developer, the order of the
 method, and justification for the order on top of it. In cases that you need
 another method implemented by the other teammate, ask them to push it to
 the repo and pull it then.
+  
+  
+implementation:
+  Create a node that has 3 data feilds, one for the data, one for the left pointer,
+  and one for the right pointer. Whithin the tree class there will also be a feild 
+  called root pointing to the highest node.
