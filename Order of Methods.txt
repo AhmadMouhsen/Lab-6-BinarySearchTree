@@ -47,6 +47,3 @@ PLease state what order your method is and explain how you came to that conclusi
 
 -clear(): void (Ben)
 
-
-
-

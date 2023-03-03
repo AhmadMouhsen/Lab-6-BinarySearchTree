@@ -150,21 +150,47 @@ public class BinarySearchTree<E> {
 		return null;
 	}
 	
-	boolean isIdentical(Node<E> anotherTree) {
-		return false;
-	}
+  public boolean isIdentical(Node<E> anotherTree) {
 	
-	int numLeaves() {
-		return 0;
-	}
 	
-	int numInternal() {
-		return 0;
-	}
 	
-	void clear() {
-		return;
-	}
+  }
+
+  public int numLeaves(Node<E> node) {
+	  if (node == null) {
+		  return 0;
+    }
+	  else if ((node.left == null) && (node.right == null)) {
+		  return 1;
+	  }
+    
+	  return numLeaves(node.left) + numLeaves(node.right);
+  }
+
+  public int numInternal(Node<E> node) {
+	
+	  if ((node == null) || (node.left = null && node.right == null)) {
+		  return 0;
+	  }
+	
+	  else if ()
+	
+  }
+  
+  public BinaryTree clear() {
+
+	
+	  if (node == null) {
+		  return;
+	  }
+	
+	  else if (node)
+	
+  }
+  
+  
+  
+}
   
   public static void main(String[] args) {
             BinarySearchTree<Integer> tree = new BinarySearchTree<>();
