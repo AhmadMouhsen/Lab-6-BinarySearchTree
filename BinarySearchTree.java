@@ -1,4 +1,6 @@
-public class BinarySearchTree<E extends Comparable<E>> {
+package lab6;
+import java.util.*;
+public class BinarySearchTree<E> {
 
     private Node root;
 
@@ -110,9 +112,61 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return node;
     }
 
+	
 
-    }
- public static void main(String[] args) {
+	E getParent(E item) {
+		return null;
+	}
+	
+	ArrayList<E> getAllDescendant(E item) {
+		return null;
+	}
+	
+	E getMax() {
+		return null;
+	}
+	
+	int getHeight() {
+		return 0;
+	}
+	
+	int getLevel(E item) {
+		return 0;
+	}
+	
+	void inOrder() {
+		return;
+	}
+	
+	void preOrder() {
+		return;
+	}
+	
+	void postOrder() {
+		return;
+	}
+	
+	ArrayList<E> bfs() {
+		return null;
+	}
+	
+	boolean isIdentical(Node<E> anotherTree) {
+		return false;
+	}
+	
+	int numLeaves() {
+		return 0;
+	}
+	
+	int numInternal() {
+		return 0;
+	}
+	
+	void clear() {
+		return;
+	}
+  
+  public static void main(String[] args) {
             BinarySearchTree<Integer> tree = new BinarySearchTree<>();
 
             // add some nodes to the tree
@@ -130,3 +184,6 @@ public class BinarySearchTree<E extends Comparable<E>> {
             //test the remove() method
             System.out.println(tree.remove(6)); // true
             System.out.println(tree.find(6)); // false
+ }
+  
+}
