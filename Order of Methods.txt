@@ -1,0 +1,51 @@
+PLease state what order your method is and explain how you came to that conclusion.
+
+-add(E item) boolean (Liban)
+
+
+-remove(E item) E (Liban)
+
+
+-find (E item) boolean (Liban)
+
+
+-getParent(E item): E (Liban)
+
+
+-getAllDescendant (E item): ArrayList (Ahmad)
+
+
+-getMax(): E (Ahmad)
+
+
+-getHeight(): int (Ahmad)
+
+
+-getLevel(E item): int (Ahmad)
+
+
+-inOrder(): void (Will)
+
+
+-preOrder(): void (Will)
+
+
+-postOrder(): void (Will)
+
+
+-bfs(): ArrayList (Will)
+
+
+-isIdentical(Node anotherTree) (Ben)
+
+
+-numLeaves(): int (Ben)
+
+
+-numInternal(): int (Ben)
+
+
+-clear(): void (Ben)
+
+
+
