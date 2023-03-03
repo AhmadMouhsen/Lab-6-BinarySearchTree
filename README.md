@@ -1,8 +1,8 @@
 # Lab-6-BinarySearchTree
 
-1. add(E item) boolean  (Liban)
+1. add(E item) boolean (Liban)
 2. remove(E item) E (Liban)
-3. find (E item) boolean( Liban)
+3. find (E item) boolean (Liban)
 4. getParent(E item): E (Liban)
 5. getAllDescendant (E item): ArrayList<E> (Ahmad)
 6. getMax(): E (Ahmad)
@@ -12,10 +12,10 @@
 10. preOrder(): void (Will)
 11. postOrder(): void (Will)
 12. bfs(): ArrayList<E> (Will)
-13. isIdentical(Node<E> anotherTree)
-14. numLeaves(): int
-15. numInternal(): int
-16. clear(): void
+13. isIdentical(Node<E> anotherTree) (Ben)
+14. numLeaves(): int (Ben)
+15. numInternal(): int (Ben)
+16. clear(): void (Ben)
   
 Make sure you create a test cases in the main method to test out your methods.
   
