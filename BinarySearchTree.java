@@ -1,6 +1,6 @@
 package lab6;
 import java.util.*;
-public class BinarySearchTree<E> {
+public class BinarySearchTree<E extends Comparable<E>> {
 
     private Node root;
 
