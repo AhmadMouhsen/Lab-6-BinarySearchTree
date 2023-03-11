@@ -1,35 +1,38 @@
-package lab6;
 import java.util.*;
 public class BinarySearchTree<E extends Comparable<E>> {
 
-    private Node root;
+	private Node root;
+	private ArrayList<E> bfs = new ArrayList<E>();
+	private ArrayList<E> allDescendant = new ArrayList<E>();
+	private int indidualNodeLevel = 1;
+	
+	public BinarySearchTree() {
+		root = null;
+	}
 
-    public BinarySearchTree() {
-        root = null;
-    }
+	public class Node {
+		private E data;
+		private Node left;
+		private Node right;
 
-    public class Node {
-        private E data;
-        private Node left;
-        private Node right;
+		public Node(E data) {
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
 
-        public Node(E data) {
-            this.data = data;
-            this.left = null;
-            this.right = null;
-        }
-    }
+	public boolean add(E item) {
+		if (root == null) {
+			root = new Node(item);
+			return true;
+		} 
+		else {
+			return add(root, item);
+		}
+	}
 
-    public boolean add(E item) {
-        if (root == null) {
-            root = new Node(item);
-            return true;
-        } else {
-            return add(root, item);
-        }
-    }
-
-    private boolean add(Node node, E item) {
+	private boolean add(Node node, E item) {
         if (item.equals(node.data)) {
             return false; // already in the tree
         } else if (item.compareTo(node.data) < 0) {
@@ -45,26 +48,30 @@ public class BinarySearchTree<E extends Comparable<E>> {
                 return true;
             } else {
                 return add(node.right, item);
-	    }
-	}
-    }
+                }
+            }
+        }
 	
 	public boolean find(E item) {
-        return find(root, item);
-    }
+	    return find(root, item);
+	}
+        
+	private boolean find(Node node, E item) {
+		if (node == null) {
+			return false; // item not found
+		}
+		else if (item.equals(node.data)) {
+			return true;
+		}
+		else if (item.compareTo(node.data) < 0) {
+			return find(node.left, item);
+		}
+		else {
+			return find(node.right, item);
+		}
+	}
 
-    private boolean find(Node node, E item) {
-        if (node == null) {
-            return false; // item not found
-        } else if (item.equals(node.data)) {
-            return true;
-        } else if (item.compareTo(node.data) < 0) {
-            return find(node.left, item);
-        } else {
-            return find(node.right, item);
-        }}
-      
-          public boolean remove(E item) {
+	public boolean remove(E item) {
         if (root == null) {
             return false; // empty tree
         } else if (item.equals(root.data)) {
@@ -103,107 +110,286 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return remove(node.right, node, item);
         }
     }
-
+	
     private Node findMin(Node node) {
-    	//helper method to find the minimium node in a subtree
+        // helper method to find the minimum node in a subtree
         while (node.left != null) {
             node = node.left;
         }
         return node;
     }
+    
+	public Node getParent(E item) {
+        return getParent(root, item);
+    }
 
-	
-
-	 public Node getParent(E item) {
-            return getParent(root, item);
+    private Node getParent(Node node, E item) {
+        if (node == null || node.data.equals(item)) {
+            return null;
+        } else if ((node.left != null && node.left.data.equals(item)) || (node.right != null && node.right.data.equals(item))) {
+            return node;
+        } else if (item.compareTo(node.data) < 0) {
+            return getParent(node.left, item);
+        } else {
+            return getParent(node.right, item);
         }
+    }
 
-        private Node getParent(Node node, E item) {
-            if (node == null || node.data.equals(item)) {
-                return null;
-            } else if ((node.left != null && node.left.data.equals(item)) || (node.right != null && node.right.data.equals(item))) {
-                return node;
-            } else if (item.compareTo(node.data) < 0) {
-                return getParent(node.left, item);
-            } else {
-                return getParent(node.right, item);
-            }
-        }
-	
-	ArrayList<E> getAllDescendant(E item) {
-		return null;
+
+	public ArrayList<E> getAllDescendant(E item) {
+  
+	}
+
+	public Node getMax(Node node) {
+  
 	}
 	
-	E getMax() {
-		return null;
+
+	public int getHeight(Node n) {
+		
 	}
 	
-	int getHeight() {
-		return 0;
-	}
 	
-	int getLevel(E item) {
-		return 0;
+	public int getLevel(E item) {
+	    
+  }
+
+	
+	void addCurrentLevel(Node n, int level) {
+		if (n == null) {
+			return;
+		}
+		if (level == 1) {
+			bfs.add(n.data);
+		}
+		else if (level > 1) {
+			addCurrentLevel(n.left, level - 1);
+			addCurrentLevel(n.right, level -1);
+		}
+	}
+
+	
+	void inOrder(Node n) {
+		if (n == null) {
+			return;
+		}
+		inOrder(n.left);
+		System.out.print(n.data + " ");
+		inOrder(n.right);
 	}
 	
 	void inOrder() {
-		return;
+		// automatically pass the root if no argument is given
+		inOrder(root);
 	}
+
+	void preOrder(Node n) {
+
+		if (n == null) {
+			return;
+		}
+		System.out.print(n.data + " ");
+		preOrder(n.left);
+		preOrder(n.right);
+	}
+	
 	
 	void preOrder() {
-		return;
+		// automatically pass the root if no argument is given
+		preOrder(root);
 	}
+	
+
+	void postOrder(Node n) {
+		if (n == null) {
+			return;
+		}
+		postOrder(n.left);
+		postOrder(n.right);
+		System.out.print(n.data + " ");
+	}
+	
 	
 	void postOrder() {
-		return;
+		// automatically pass the root if no argument is given
+		postOrder(root);
 	}
 	
+
 	ArrayList<E> bfs() {
-		return null;
+		int h = getHeight(root);
+		for (int i = 1; i <= h; i++) {
+			addCurrentLevel(root, i);
+		}
+		return bfs;
 	}
 	
-	boolean isIdentical(Node<E> anotherTree) {
+
+	public boolean isIdentical(Node anotherTree) {
 		return false;
 	}
 	
-	int numLeaves() {
-		return 0;
+
+	public int numLeaves(Node node) {
+
+		if (node == null) {
+			return 0;
+		} else if ((node.left == null) && (node.right == null)) {
+			return 1;
+		}
+
+		return numLeaves(node.left) + numLeaves(node.right);
 	}
 	
-	int numInternal() {
-		return 0;
-	}
-	
-	void clear() {
-		return;
-	}
-  
-  public static void main(String[] args) {
-            BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-
-            // add some nodes to the tree
-            tree.add(5);
-            tree.add(3);
-            tree.add(7);
-            tree.add(1);
-            tree.add(4);
-            tree.add(6);
-            tree.add(9);
-
-            // test the find() method
-            System.out.println(tree.find(6)); // true
-            System.out.println(tree.find(8)); // false
-            //test the remove() method
-            System.out.println(tree.remove(6)); // true
-            System.out.println(tree.find(6)); // false
-	      //test the getParent() method
-            BinarySearchTree.Node parent = tree.getParent(4);
-            System.out.println(parent.data); // 3
-
-            parent = tree.getParent(7);
-            System.out.println(parent.data); // 5
+	public boolean isIdentical(BinarySearchTree<E> tree2, Node root, Node root2) {
+       
+        
+        if (this.root == null && tree2.root == null) {
+            return true;
         }
+        
+        if (root != null && root2 != null) {
+            if (root.data != root2.data) {
+                return false;
+            }
+            isIdentical(tree2, root.left, root2.left);
+            isIdentical(tree2, root.right, root2.right);
+        }
+        return true;
     }
- }
-  
+    
+    public boolean isIdentical(BinarySearchTree<E> tree2) {
+        return isIdentical(tree2, this.root, tree2.root);
+    }
+	
+    public int numLeaves(Node root) {
+        if (root == null) {
+            return 0;
+        
+        } else if (root != null && (root.left == null) && (root.right == null)) {
+            return 1;
+        }
+
+        return numLeaves(root.left) + numLeaves(root.right);
+    }
+    
+    public int numLeaves() {
+        return numLeaves(this.root);
+    }
+    
+    public int numInternal(Node root) {
+        
+        int internalCount = 0;
+        
+        if (root == null || (root.left == null && root.right == null)) {
+            return 0;
+        }
+        
+        else if (root.left != null && root.right != null) {
+            internalCount++;
+        }
+        
+        internalCount += (numInternal(root.right) + numInternal(root.left));
+        
+
+    return internalCount;
+    
+  }
+    
+    public int numInternal() {
+        return numInternal(this.root);
+    }
+    
+    public void clear(Node root) {
+
+        if (root != null) {
+            clear(root.left);
+            clear(root.right);
+            root.left = null;
+            root.right = null;
+            this.root = null;
+        }
+
+
+    }
+    
+    public void clear () {
+        clear(this.root);
+    }
+	
+
+	public static void main(String[] args) {
+	    //Liban Testing methods
+		BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+
+		// add some nodes to the tree
+		tree.add(5);
+		tree.add(3);
+		tree.add(7);
+		tree.add(1);
+		tree.add(4);
+		tree.add(6);
+		tree.add(9);
+
+		// test the find() method
+		System.out.println(tree.find(6)); // true
+		System.out.println(tree.find(8)); // false
+		// test the remove() method
+		System.out.println(tree.remove(6)); // true
+		System.out.println(tree.find(6)); // false
+
+		//test the getParent() method
+        BinarySearchTree.Node parent = tree.getParent(4);
+        System.out.println(parent.data); // 3
+
+        parent = tree.getParent(7);
+        System.out.println(parent.data); // 5
+		
+        
+        //Will Testing Methods
+		// test the inOrder() method
+		System.out.print("Inorder traversal of tree: ");
+		tree.inOrder();
+		System.out.println();
+		// test the preOrder() method
+		System.out.print("Preorder traversal of tree: ");
+		tree.preOrder();
+		System.out.println();
+		// test the postOrder() method
+		System.out.print("Postorder traversal of tree: ");
+		tree.postOrder();
+		System.out.println();
+		// test the bfs() method
+		System.out.print("BFS traversal of tree: ");
+		ArrayList test = tree.bfs();
+		for (int i = 0; i < test.size(); i++) {
+			System.out.print(test.get(i) + " ");
+		}
+		
+		
+		
+		//Bens testing last 4 methods
+        BinarySearchTree<Integer> tree2 = new BinarySearchTree<>();
+
+        // add some nodes to the tree
+        tree2.add(5);
+        tree2.add(3);
+        tree2.add(7);
+        tree2.add(1);
+        tree2.add(4);
+        tree2.add(6);
+        tree2.add(9);
+        
+        
+        System.out.println(tree.isIdentical(tree2));
+        
+        System.out.println("internal nodes : " + tree.numInternal());
+        System.out.println("leaf nodes : " + tree.numLeaves());
+        
+        tree.clear();
+        System.out.println("internal nodes after clear : " + tree.numInternal());
+        System.out.println("leaf nodes after clear : " + tree.numLeaves());
+        System.out.println("root after clear : " + tree.root);
+	}
+
 }
