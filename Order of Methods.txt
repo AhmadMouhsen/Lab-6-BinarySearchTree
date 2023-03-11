@@ -41,14 +41,18 @@ number of nodes in the tree. Its recursive helper method addCurrentLevel() is O(
 the other traversal methods it must visit every node once to add them to the ArrayList.
 
 
--isIdentical(Node anotherTree) (Ben)
+-isIdentical(Node anotherTree) (Ben) 
+O(n) becuase it scans every element of 2 trees which could be seen as 2n, then you remove the coeffecient.
 
 
 -numLeaves(): int (Ben)
+O(n) because it scans though every element in the given tree once.
 
 
 -numInternal(): int (Ben)
+O(n) because it scans though every element in the given tree once.
 
 
 -clear(): void (Ben)
+O(n) because it scans though every element in the given tree once, then it removes them from the bottom up.
 
