@@ -1,4 +1,4 @@
-PLease state what order your method is and explain how you came to that conclusion.
+Please state what order your method is and explain how you came to that conclusion.
 
 -add(E item) boolean (Liban)
 
@@ -25,15 +25,19 @@ PLease state what order your method is and explain how you came to that conclusi
 
 
 -inOrder(): void (Will)
-
-
 -preOrder(): void (Will)
-
-
 -postOrder(): void (Will)
+
+All three have the same order since they are all implemented in the same way.
+Being recursive methods, the methods themselves are O(1), with no loops and only a handful of statements,
+but functionally they are O(N) because they will recursively call themselves once for each node in the tree.
 
 
 -bfs(): ArrayList (Will)
+
+bfs() is O(logN) because its main for loop is dependent on the height of the tree rather than the total
+number of nodes in the tree. Its recursive helper method addCurrentLevel() is O(N), however, as similar to
+the other traversal methods it must visit every node once to add them to the ArrayList.
 
 
 -isIdentical(Node anotherTree) (Ben)
