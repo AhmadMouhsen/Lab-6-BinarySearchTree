@@ -114,9 +114,21 @@ public class BinarySearchTree<E> {
 
 	
 
-	E getParent(E item) {
-		return null;
-	}
+	 public Node getParent(E item) {
+            return getParent(root, item);
+        }
+
+        private Node getParent(Node node, E item) {
+            if (node == null || node.data.equals(item)) {
+                return null;
+            } else if ((node.left != null && node.left.data.equals(item)) || (node.right != null && node.right.data.equals(item))) {
+                return node;
+            } else if (item.compareTo(node.data) < 0) {
+                return getParent(node.left, item);
+            } else {
+                return getParent(node.right, item);
+            }
+        }
 	
 	ArrayList<E> getAllDescendant(E item) {
 		return null;
@@ -184,6 +196,14 @@ public class BinarySearchTree<E> {
             //test the remove() method
             System.out.println(tree.remove(6)); // true
             System.out.println(tree.find(6)); // false
+	      //test the getParent() method
+            BinarySearchTree.Node parent = tree.getParent(4);
+            System.out.println(parent.data); // 3
+
+            parent = tree.getParent(7);
+            System.out.println(parent.data); // 5
+        }
+    }
  }
   
 }
