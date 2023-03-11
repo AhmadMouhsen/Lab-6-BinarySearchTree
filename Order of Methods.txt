@@ -1,16 +1,17 @@
 Please state what order your method is and explain how you came to that conclusion.
 
 -add(E item) boolean (Liban)
+The O(log n) in the average case, where n is the number of nodes in the tree. Worst case, the time complexity can be O(n).
 
 
 -remove(E item) E (Liban)
-
+The time complexity of the method is O(log n) in the average case, where n is the number of nodes in the tree. In the worst case, the time complexity can be O(n)
 
 -find (E item) boolean (Liban)
-
+The time complexity of the method is O(log n) in the average case, where n is the number of nodes in the tree. In the worst case, the time complexity can be O(n).
 
 -getParent(E item): E (Liban)
-
+The time complexity of the method is also O(log n) in the average case, where n is the number of nodes in the tree. In the worst case, the time complexity can be O(n).
 
 -getAllDescendant (E item): ArrayList (Ahmad)
 
