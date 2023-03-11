@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class BinarySearchTree<E extends Comparable<E>> {
 
 	private Node root;
@@ -137,22 +138,106 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
 
 	public ArrayList<E> getAllDescendant(E item) {
-  
+	    
+        Node node = getItemNode(root, item);
+        
+        getAllDescendant(node);
+        
+        allDescendant.remove(item);
+        
+        return allDescendant; 
 	}
+	
+	private void getAllDescendant(Node node) {
+	    if (node == null) {
+            return;
+        }
+	    getAllDescendant(node.left);
+        allDescendant.add(node.data);
+        getAllDescendant(node.right);
+	    
+	}
+	
+	//Helper method for getAllDescendant to get the
+	//node of the item.
+	private Node getItemNode(Node node, E item){
+	    if (node == null) {
+            return null; // item not found
+        }
+	    else if (item.equals(node.data)) {
+            return node;
+        }
+	    else if (item.compareTo(node.data) < 0) {
+            return getItemNode(node.left, item);
+        }
+        else {
+            return getItemNode(node.right, item);
+        }
+	    
+	}
+	
 
 	public Node getMax(Node node) {
-  
+	    if (node.right == null) {
+	        return node;
+	    }
+	    
+	    node = node.right;
+	    return getMax(node);
 	}
 	
+	public Node getMax() {
+	    // automatically pass the root if no argument is given
+	    return getMax(root);
+	}
 
 	public int getHeight(Node n) {
-		
+		if (n == null) {
+			return 0;
+		}
+		else {
+			// get the height of each subtree
+			int leftHeight = getHeight(n.left);
+			int rightHeight = getHeight(n.right);
+			// use the larger of the two subtrees
+			if (leftHeight > rightHeight) {
+				return (leftHeight + 1);
+			}
+			else {
+				return (rightHeight + 1);
+			}
+		}
 	}
 	
+	public int getHeight() {
+		// automatically pass the root if no argument is given
+		return getHeight(root);
+	}
 	
 	public int getLevel(E item) {
+	    indidualNodeLevel = 1;
+	    getLevel(root, item);
 	    
-  }
+	    return indidualNodeLevel;
+    }
+	
+	private Node getLevel(Node node, E item) {
+	    if (node == null) {
+            return null; // item not found
+        }
+        else if (item.equals(node.data)) {
+            return node;
+        }
+        else if (item.compareTo(node.data) < 0) {
+            indidualNodeLevel++;
+            return getLevel(node.left, item);
+        }
+        else {
+            indidualNodeLevel++;
+            return getLevel(node.right, item);
+        }
+	    
+	}
 
 	
 	void addCurrentLevel(Node n, int level) {
@@ -366,6 +451,22 @@ public class BinarySearchTree<E extends Comparable<E>> {
 			System.out.print(test.get(i) + " ");
 		}
 		
+		
+		//Ahmad Testing methods
+		System.out.println();
+		
+		//Testing getHeight
+		System.out.println("Height of tree: " + tree.getHeight());
+		
+		//Testing get Max method
+		System.out.println("Max Value of Tree: " + tree.getMax().data); //should be 9
+		
+		//Testing getAllDescendant method
+		System.out.println("All Descendants of "
+		        + "node with item 3: " + tree.getAllDescendant(3)); // should be [1,4]
+		
+		//Testing get all level method
+		System.out.println("Level of Node with item 4: " + tree.getLevel(4)); //should be 3
 		
 		
 		//Bens testing last 4 methods
