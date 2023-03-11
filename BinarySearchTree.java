@@ -1,4 +1,3 @@
- Ben-Last-4-Methods
 package lab6;
 
 import java.util.*;
