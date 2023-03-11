@@ -3,7 +3,6 @@ Please state what order your method is and explain how you came to that conclusi
 -add(E item) boolean (Liban)
 The O(log n) in the average case, where n is the number of nodes in the tree. Worst case, the time complexity can be O(n).
 
-
 -remove(E item) E (Liban)
 The time complexity of the method is O(log n) in the average case, where n is the number of nodes in the tree. In the worst case, the time complexity can be O(n)
 
@@ -13,16 +12,38 @@ The time complexity of the method is O(log n) in the average case, where n is th
 -getParent(E item): E (Liban)
 The time complexity of the method is also O(log n) in the average case, where n is the number of nodes in the tree. In the worst case, the time complexity can be O(n).
 
+
 -getAllDescendant (E item): ArrayList (Ahmad)
+This method takes in an item not a node so I first have to find the node that contians the
+item which is a O(log N) process since I can compare the value of the item with the value
+of each node to determine if I need to go left or right, eliminating about half the values 
+I need to search. I created a helper method to do this called getItemNode. Then once I get 
+the node I can begin to get the decendants of that node, any way I do this it will be a 
+O(N) process since I have to visit every node under that parent node. And while viisting 
+the nodes I have to add them to an ArrayList. After all that has been done I have to search 
+the ArrayList to remove the parent item since it was included, I used Arraylist.remove(item) 
+so I'm not sure if java linearly searches the arraylist or uses a binary search because the
+array is ordered but I'll just say it's O(N). Then I return the array. This whole process 
+would proabably average out to an O(N*2) which is just O(N) since it is iterating the same
+elements about twice. So final Answer is O(N).
 
 
 -getMax(): E (Ahmad)
-
+This would be getting rid of half of the nodes with every compareson it does
+when going to the right to get the biggest value, which means it would be O(log N)
 
 -getHeight(): int (Ahmad)
-
+The Order of this method would be O(N) since it would have to look through 
+the whole tree to find the node that is the deepest to give the tree height.
+It has to look at all the nodes.
 
 -getLevel(E item): int (Ahmad)
+This method takes in an item not a node first so I have to find the node which 
+the item is in and to do that I have to go through the tree but since I can compare
+the values of the nodes and determine where the value is I can find the node quickly.
+I would be getting rid of about half my options with every comparson, the order would
+be O(log N). And while I was doing the comparisons I can keep track of how deep I go
+into the tree and return the level of the node once I find it.
 
 
 -inOrder(): void (Will)
@@ -44,14 +65,11 @@ the other traversal methods it must visit every node once to add them to the Arr
 -isIdentical(Node anotherTree) (Ben) 
 O(n) becuase it scans every element of 2 trees which could be seen as 2n, then you remove the coeffecient.
 
-
 -numLeaves(): int (Ben)
 O(n) because it scans though every element in the given tree once.
 
-
 -numInternal(): int (Ben)
 O(n) because it scans though every element in the given tree once.
-
 
 -clear(): void (Ben)
 O(n) because it scans though every element in the given tree once, then it removes them from the bottom up.
