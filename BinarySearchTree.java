@@ -51,7 +51,7 @@ public class BinarySearchTree<E> {
 			}
 		}
 	}
-/*
+
 	private boolean find(Node node, E item) {
 		if (node == null) {
 			return false; // item not found
@@ -63,12 +63,12 @@ public class BinarySearchTree<E> {
 			return find(node.right, item);
 		}
 	}
-*/
+
 	public Node getParent(E item) {
 		// return getParent(root, item);
 		return null;
 	}
-/*
+
 	public boolean remove(E item) {
 		if (root == null) {
 			return false; // empty tree
@@ -82,8 +82,8 @@ public class BinarySearchTree<E> {
 			return remove(root, null, item);
 		}
 	}
-*/
-/*
+
+
 	private boolean remove(Node node, Node parent, E item) {
 		if (node == null) {
 			return false; // item not found
@@ -109,7 +109,7 @@ public class BinarySearchTree<E> {
 			return remove(node.right, node, item);
 		}
 	}
-*/
+
 
 	private Node findMin(Node node) {
 		// helper method to find the minimium node in a subtree
