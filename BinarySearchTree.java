@@ -383,6 +383,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		
 		System.out.println();
 		
+		//Testing getHeight
+		System.out.println("Height of tree: " + tree.getHeight());
+		
 		//Testing get Max method
 		System.out.println("Max Value of Tree: " + tree.getMax().data); //should be 9
 		
