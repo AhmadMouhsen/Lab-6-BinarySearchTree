@@ -22,7 +22,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
 			this.right = null;
 		}
 	}
-
+	
+	//Liban
 	public boolean add(E item) {
 		if (root == null) {
 			root = new Node(item);
@@ -32,7 +33,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
 			return add(root, item);
 		}
 	}
-
+	
+	//Liban
 	private boolean add(Node node, E item) {
         if (item.equals(node.data)) {
             return false; // already in the tree
@@ -53,10 +55,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
             }
         }
 	
+	//Liban
 	public boolean find(E item) {
 	    return find(root, item);
 	}
         
+	//Liban
 	private boolean find(Node node, E item) {
 		if (node == null) {
 			return false; // item not found
@@ -71,7 +75,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
 			return find(node.right, item);
 		}
 	}
-
+	
+	//Liban
 	public boolean remove(E item) {
         if (root == null) {
             return false; // empty tree
@@ -83,9 +88,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return result;
         } else {
             return remove(root, null, item);
-        }
-    }
+	}
+	}
 
+	//Liban
     private boolean remove(Node node, Node parent, E item) {
         if (node == null) {
             return false; // item not found
@@ -112,6 +118,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         }
     }
 	
+	//Liban
     private Node findMin(Node node) {
         // helper method to find the minimum node in a subtree
         while (node.left != null) {
@@ -124,6 +131,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return getParent(root, item);
     }
 
+	//Liban
     private Node getParent(Node node, E item) {
         if (node == null || node.data.equals(item)) {
             return null;
@@ -135,8 +143,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return getParent(node.right, item);
         }
     }
-
-
+	
+	//Ahmad
 	public ArrayList<E> getAllDescendant(E item) {
 	    
         Node node = getItemNode(root, item);
@@ -148,6 +156,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return allDescendant; 
 	}
 	
+	//Ahmad
 	private void getAllDescendant(Node node) {
 	    if (node == null) {
             return;
@@ -158,6 +167,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	    
 	}
 	
+	//Ahmad
 	//Helper method for getAllDescendant to get the
 	//node of the item.
 	private Node getItemNode(Node node, E item){
@@ -176,7 +186,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	    
 	}
 	
-
+	//Ahmad
 	public Node getMax(Node node) {
 	    if (node.right == null) {
 	        return node;
@@ -186,11 +196,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	    return getMax(node);
 	}
 	
+	//Ahmad
 	public Node getMax() {
 	    // automatically pass the root if no argument is given
 	    return getMax(root);
 	}
-
+	
+	//Ahmad
 	public int getHeight(Node n) {
 		if (n == null) {
 			return 0;
@@ -209,18 +221,21 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		}
 	}
 	
+	//Ahmad
 	public int getHeight() {
 		// automatically pass the root if no argument is given
 		return getHeight(root);
 	}
 	
+	//Ahmad
 	public int getLevel(E item) {
 	    indidualNodeLevel = 1;
 	    getLevel(root, item);
 	    
 	    return indidualNodeLevel;
-    }
+	}
 	
+	//Ahmad
 	private Node getLevel(Node node, E item) {
 	    if (node == null) {
             return null; // item not found
@@ -239,7 +254,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	    
 	}
 
-	
+	//Will
 	void addCurrentLevel(Node n, int level) {
 		if (n == null) {
 			return;
@@ -253,7 +268,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		}
 	}
 
-	
+	//Will
 	void inOrder(Node n) {
 		if (n == null) {
 			return;
@@ -263,11 +278,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		inOrder(n.right);
 	}
 	
+	//Will
 	void inOrder() {
 		// automatically pass the root if no argument is given
 		inOrder(root);
 	}
-
+	
+	//Will
 	void preOrder(Node n) {
 
 		if (n == null) {
@@ -278,13 +295,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		preOrder(n.right);
 	}
 	
-	
+	//Will
 	void preOrder() {
 		// automatically pass the root if no argument is given
 		preOrder(root);
 	}
 	
-
+	//Will
 	void postOrder(Node n) {
 		if (n == null) {
 			return;
@@ -294,13 +311,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		System.out.print(n.data + " ");
 	}
 	
-	
+	//Will
 	void postOrder() {
 		// automatically pass the root if no argument is given
 		postOrder(root);
 	}
 	
-
+	//Will
 	ArrayList<E> bfs() {
 		int h = getHeight(root);
 		for (int i = 1; i <= h; i++) {
@@ -309,12 +326,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		return bfs;
 	}
 	
-
+	//Ben
 	public boolean isIdentical(Node anotherTree) {
 		return false;
 	}
 	
-
+	//Ben
 	public int numLeaves(Node node) {
 
 		if (node == null) {
@@ -326,6 +343,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		return numLeaves(node.left) + numLeaves(node.right);
 	}
 	
+	//Ben
 	public boolean isIdentical(BinarySearchTree<E> tree2, Node root, Node root2) {
        
         
@@ -343,10 +361,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return true;
     }
     
+	//Ben
     public boolean isIdentical(BinarySearchTree<E> tree2) {
         return isIdentical(tree2, this.root, tree2.root);
     }
 	
+	//Ben
     public int numLeaves(Node root) {
         if (root == null) {
             return 0;
@@ -358,10 +378,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return numLeaves(root.left) + numLeaves(root.right);
     }
     
+	//Ben
     public int numLeaves() {
         return numLeaves(this.root);
     }
     
+	//Ben
     public int numInternal(Node root) {
         
         int internalCount = 0;
@@ -381,10 +403,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
     
   }
     
+	//Ben
     public int numInternal() {
         return numInternal(this.root);
     }
     
+	//Ben
     public void clear(Node root) {
 
         if (root != null) {
@@ -398,13 +422,14 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     }
     
+	//Ben
     public void clear () {
         clear(this.root);
     }
 	
 
 	public static void main(String[] args) {
-	    //Liban Testing methods
+		//Liban Testing methods
 		BinarySearchTree<Integer> tree = new BinarySearchTree<>();
 
 		// add some nodes to the tree
@@ -424,14 +449,14 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		System.out.println(tree.find(6)); // false
 
 		//test the getParent() method
-        BinarySearchTree.Node parent = tree.getParent(4);
-        System.out.println(parent.data); // 3
-
-        parent = tree.getParent(7);
-        System.out.println(parent.data); // 5
+		BinarySearchTree.Node parent = tree.getParent(4);
+		System.out.println(parent.data); // 3
 		
-        
-        //Will Testing Methods
+		parent = tree.getParent(7);
+		System.out.println(parent.data); // 5
+		
+		
+		//Will Testing Methods
 		// test the inOrder() method
 		System.out.print("Inorder traversal of tree: ");
 		tree.inOrder();
@@ -470,27 +495,27 @@ public class BinarySearchTree<E extends Comparable<E>> {
 		
 		
 		//Bens testing last 4 methods
-        BinarySearchTree<Integer> tree2 = new BinarySearchTree<>();
-
-        // add some nodes to the tree
-        tree2.add(5);
-        tree2.add(3);
-        tree2.add(7);
-        tree2.add(1);
-        tree2.add(4);
-        tree2.add(6);
-        tree2.add(9);
+		BinarySearchTree<Integer> tree2 = new BinarySearchTree<>();
+		
+		// add some nodes to the tree
+        	tree2.add(5);
+        	tree2.add(3);
+        	tree2.add(7);
+        	tree2.add(1);
+        	tree2.add(4);
+        	tree2.add(6);
+        	tree2.add(9);
         
         
-        System.out.println(tree.isIdentical(tree2));
+        	System.out.println(tree.isIdentical(tree2));
         
-        System.out.println("internal nodes : " + tree.numInternal());
-        System.out.println("leaf nodes : " + tree.numLeaves());
+        	System.out.println("internal nodes : " + tree.numInternal());
+        	System.out.println("leaf nodes : " + tree.numLeaves());
         
-        tree.clear();
-        System.out.println("internal nodes after clear : " + tree.numInternal());
-        System.out.println("leaf nodes after clear : " + tree.numLeaves());
-        System.out.println("root after clear : " + tree.root);
+        	tree.clear();
+        	System.out.println("internal nodes after clear : " + tree.numInternal());
+        	System.out.println("leaf nodes after clear : " + tree.numLeaves());
+        	System.out.println("root after clear : " + tree.root);
 	}
 
 }
