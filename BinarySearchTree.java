@@ -61,9 +61,7 @@ public class BinarySearchTree<E> {
         } else {
             return find(node.right, item);
         }}
-        public Node getParent(E item) {
-            return getParent(root, item);
-        }
+      
           public boolean remove(E item) {
         if (root == null) {
             return false; // empty tree
