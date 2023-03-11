@@ -45,9 +45,11 @@ public class BinarySearchTree<E extends Comparable<E>> {
                 return true;
             } else {
                 return add(node.right, item);
-            }
-        }
-        public boolean find(E item) {
+	    }
+	}
+    }
+	
+	public boolean find(E item) {
         return find(root, item);
     }
 
